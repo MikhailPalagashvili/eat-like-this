@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost/postgres
+    url: jdbc:postgresql://localhost:5432/eat_like_this
     username: postgres
     password: password
   jpa:
