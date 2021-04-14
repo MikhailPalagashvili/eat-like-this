@@ -21,7 +21,7 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        if (foodDataRepository == null || foodDataRepository.count() == 0) {
+        if (foodDataRepository.count() == 0) {
             log.info("Food Repository is Empty");
             populateFoodDataDatabase();
         }
