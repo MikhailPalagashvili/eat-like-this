@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+	<head th:include="header::myHead">
+	</head>
+	<body>
+		<div th:include="header :: myNavbar"> </div>
+			<form action="#" method="post" th:action="@{/register}" th:object="${user}" id="registerForm">
+				<div class="form-group">
+					<label for="email">Email Address</label>
+					<input type="email" class="form-control" id="email"
+					       placeholder="Enter Email" th:field="*{email}"/>
+					<span class="validationError"
+					      th:if="${#fields.hasErrors('email')}"
+					      th:errors="*{email}">Email Error</span>
+				</div>
+				<div class="form-group">
+					<label for="username">Username: </label>
+					<input type="text" class="form-control" id="username"
+					       placeholder="Enter Username" th:field="*{username}"/>
+					<span class="validationError"
+					      th:if="${#fields.hasErrors('username')}"
+					      th:errors="*{username}">Username Error</span>
+				</div>
+				<div class="form-group">
+					<label for="password">Password</label>
+					<input type="password" class="form-control" id="password" placeholder="Password"
+					       th:field="*{password}"/>
+					<span class="validationError"
+					      th:if="${#fields.hasErrors('password')}"
+					      th:errors="*{password}">Password Error</span>
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+	</body>
+</html>

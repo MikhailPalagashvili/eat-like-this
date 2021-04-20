@@ -4,11 +4,18 @@
 		<meta charset="UTF-8">
 		<title>The Automatic Meal Planner</title>
 	</head>
-	<body id="login_img" th:style="'background-image: url(/images/login.jpg);'">
-		<h1>Put your diet on autopilot</h1>
-		<h2>Eat This Much creates personalized meal plans based on your food preferences, budget, and schedule. Reach
-			your diet and nutritional goals with our calorie calculator, weekly meal plans, grocery lists and more.
-			Create your meal plan right here in seconds.</h2>
-		<h3>Ready to give it a shot? Let us know your diet.</h3>
+	<body>
+		<h1>Result</h1>
+		<form method="POST" th:action="@{/logout}">
+			<input type="submit" value="Logout"/>
+		</form>
 	</body>
+<!--	<body id="login_img" th:style="'background-image: url(/images/login.jpg);'">-->
+<!--		<h1>Put your diet on autopilot</h1>-->
+<!--		<h2>Eat This Much creates personalized meal plans based on your food preferences, budget, and schedule. Reach-->
+<!--			your diet and nutritional goals with our calorie calculator, weekly meal plans, grocery lists and more.-->
+<!--			Create your meal plan right here in seconds.</h2>-->
+<!--		<h3>Ready to give it a shot? Let us know your diet.</h3>-->
+<!--		-->
+<!--	</body>-->
 </html>

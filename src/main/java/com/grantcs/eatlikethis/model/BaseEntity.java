@@ -1,10 +1,6 @@
 package com.grantcs.eatlikethis.model;
 
 import lombok.Getter;
-import org.springframework.data.annotation.CreatedBy;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedBy;
-import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
@@ -27,12 +23,16 @@ public abstract class BaseEntity<U> implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @CreatedDate
     private LocalDateTime createdAt;
-    @CreatedBy
-    private U createdBy;
-    @LastModifiedDate
     private LocalDateTime lastModifiedAt;
-    @LastModifiedBy
-    private U lastModifiedBy;
+
+    @PrePersist
+    public void setCreatedAt() {
+        this.createdAt = this.lastModifiedAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    public void setLastModifiedAt() {
+        this.lastModifiedAt = LocalDateTime.now();
+    }
 }
